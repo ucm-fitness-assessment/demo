@@ -1,0 +1,156 @@
+﻿會員資料 Table:
+TABLE `userprofiledata` (
+	`UserKey` INT(11) NOT NULL AUTO_INCREMENT,
+	`CardNo` VARCHAR(20) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`UserName` VARCHAR(20) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`Male` TINYINT(1) NOT NULL,
+	`Birthday` DATETIME(6) NOT NULL,
+	`Height` DOUBLE(22,0) NULL DEFAULT NULL,
+	`Weight` DOUBLE(22,0) NULL DEFAULT NULL,
+	`CreateDate` DATETIME(6) NOT NULL,
+	`UpdateDate` DATETIME(6) NOT NULL,
+	`PhoneNumber` VARCHAR(20) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`IdentityNumber` VARCHAR(20) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`Enable` TINYINT(1) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`UserKey`) USING BTREE
+)
+
+PARQ資料 Table:
+TABLE `userparqdata` (
+	`DataKey` INT(11) NOT NULL AUTO_INCREMENT,
+	`UserKey` INT(11) NOT NULL,
+	`P1q01` TINYINT(1) NOT NULL,
+	`P1q02` TINYINT(1) NOT NULL,
+	`P1q03` TINYINT(1) NOT NULL,
+	`P1q04` TINYINT(1) NOT NULL,
+	`P1q05` TINYINT(1) NOT NULL,
+	`P1q06` TINYINT(1) NOT NULL,
+	`P1q07` TINYINT(1) NOT NULL,
+	`P2q01` TINYINT(1) NOT NULL,
+	`P2q01a` TINYINT(1) NOT NULL,
+	`P2q01b` TINYINT(1) NOT NULL,
+	`P2q01c` TINYINT(1) NOT NULL,
+	`P2q02` TINYINT(1) NOT NULL,
+	`P2q02a` TINYINT(1) NOT NULL,
+	`P2q02b` TINYINT(1) NOT NULL,
+	`P2q03` TINYINT(1) NOT NULL,
+	`P2q03a` TINYINT(1) NOT NULL,
+	`P2q03b` TINYINT(1) NOT NULL,
+	`P2q03c` TINYINT(1) NOT NULL,
+	`P2q03d` TINYINT(1) NOT NULL,
+	`P2q04` TINYINT(1) NOT NULL,
+	`P2q04a` TINYINT(1) NOT NULL,
+	`P2q04b` TINYINT(1) NOT NULL,
+	`P2q05` TINYINT(1) NOT NULL,
+	`P2q05a` TINYINT(1) NOT NULL,
+	`P2q05b` TINYINT(1) NOT NULL,
+	`P2q05c` TINYINT(1) NOT NULL,
+	`P2q05d` TINYINT(1) NOT NULL,
+	`P2q05e` TINYINT(1) NOT NULL,
+	`P2q06` TINYINT(1) NOT NULL,
+	`P2q06a` TINYINT(1) NOT NULL,
+	`P2q06b` TINYINT(1) NOT NULL,
+	`P2q07` TINYINT(1) NOT NULL,
+	`P2q07a` TINYINT(1) NOT NULL,
+	`P2q07b` TINYINT(1) NOT NULL,
+	`P2q07c` TINYINT(1) NOT NULL,
+	`P2q08` TINYINT(1) NOT NULL,
+	`P2q08a` TINYINT(1) NOT NULL,
+	`P2q08b` TINYINT(1) NOT NULL,
+	`P2q08c` TINYINT(1) NOT NULL,
+	`P2q09` TINYINT(1) NOT NULL,
+	`P2q09a` TINYINT(1) NOT NULL,
+	`P2q09b` TINYINT(1) NOT NULL,
+	`P2q09c` TINYINT(1) NOT NULL,
+	`P2q10` TINYINT(1) NOT NULL,
+	`P2q10a` TINYINT(1) NOT NULL,
+	`P2q10b` TINYINT(1) NOT NULL,
+	`P2q10c` TINYINT(1) NOT NULL,
+	`CreateTime` DATETIME(6) NOT NULL,
+	`Remarks` VARCHAR(200) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`P2q07d` TINYINT(1) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`DataKey`) USING BTREE
+)
+
+PARQ字串:
+    <sys:String x:Key="PARQRecordList">PARQ紀錄列表</sys:String>
+    <sys:String x:Key="ParqPlus2019">2019 身體活動準備度問卷(PAR-Q+)</sys:String>
+    <sys:String x:Key="GeneralHelthQuestions">1. 基本健康狀況</sys:String>
+    <sys:String x:Key="MedicalConditions">2. 慢性疾病狀況</sys:String>
+    <sys:String x:Key="ParticipantDeclaration">3. 身體活動聲明</sys:String>
+    <sys:String x:Key="NextStep">下一步</sys:String>
+    <sys:String x:Key="AnswersAllNo">回答皆為「否」</sys:String>
+    <sys:String x:Key="Part1SuggestionDesc1">您確定可以從事更多的身體活動</sys:String>
+    <sys:String x:Key="Part1SuggestionDesc2">請直接跳至第三部分簽署身體活動聲明</sys:String>
+    <sys:String x:Key="Part1SuggestionDesc3">以緩慢且漸進的方式，開始進行更多身體活動</sys:String>
+    <sys:String x:Key="Part1SuggestionDesc4">如果您超過45歲且沒有規律進行費力身體活動的習慣</sys:String>
+    <sys:String x:Key="Part1SuggestionDesc5">請在進行費力運動前，諮詢經認證的運動專業人員。</sys:String>
+    <sys:String x:Key="SignParticipantDeclaration">簽署身體活動申明</sys:String>
+    <sys:String x:Key="ReadAndAgree">請詳細閱讀以下聲明後並點選「我同意」按鈕</sys:String>
+    <sys:String x:Key="ParticipantDeclarationDesc1">我本人，已詳細閱讀且保證完整填寫問卷，我了解此身體活動聲明有效期限為從填寫後起算12的月內，且若填寫人身體狀況改變使與問券填寫內容不同則失效。</sys:String>
+    <sys:String x:Key="ParticipantDeclarationDesc2">我也了解受託人「</sys:String>
+    <sys:String x:Key="ParticipantDeclarationDesc3">」可保留此份評量供記錄保存，此情況下受託人須依國家規定保存個人健康資訊，並確保資訊的隱私性，且不得誤用或不當揭露資訊。</sys:String>
+    <sys:String x:Key="ParticipantDeclarationDesc4">我已完全了解並確實回答本問卷問題</sys:String>
+    <sys:String x:Key="RestartQuestionnaire">重新評量</sys:String>
+    <sys:String x:Key="IAgree">我同意</sys:String>
+    <sys:String x:Key="UFinishedPARQ">您已完成PARQ自我評量表</sys:String>
+    <sys:String x:Key="Next">下一題</sys:String>
+    <sys:String x:Key="AnswersOver1Yes">回答有任一個或一個以上為「是」</sys:String>
+    <sys:String x:Key="SuggestionDesc1">您在準備增加身體活動量或參與健康體適能測試評估前，建議您諮詢有專業執照的醫療人員或經認證的運動專業人員。</sys:String>
+    <sys:String x:Key="SuggestionDesc2">建議您諮詢經認證的運動專業人員，以提供您安全、有效的活動計畫來達到健康需求。</sys:String>
+    <sys:String x:Key="SuggestionDesc3">如20-60分鐘的低/中等費力運動，每周3-5天的有氧與肌力訓練運動。</sys:String>
+    <sys:String x:Key="SuggestionDesc4">隨著進程，您應該每週至少累積150分鐘以上的中等費力運動。</sys:String>
+    <sys:String x:Key="ParQ_P1Q01">1. 您的醫生說過您有心臟病或高血壓嗎?</sys:String>
+    <sys:String x:Key="ParQ_P1Q02">2. 在休息狀態下、日常活動，或是運動時，您會感覺胸部疼痛嗎?</sys:String>
+    <sys:String x:Key="ParQ_P1Q03">3. 過去12個月內，您是否曾經因為頭暈而失去平衡，或是失去意識嗎? (如果您的頭暈與過度呼吸有關，包括劇烈運動時，請回答否)。</sys:String>
+    <sys:String x:Key="ParQ_P1Q04">4. 請問您有沒有其他慢性疾病 (除了心臟病、高血壓外)?</sys:String>
+    <sys:String x:Key="ParQ_P1Q05">5. 請問您目前有沒有服用處方藥，來治療慢性疾病?</sys:String>
+    <sys:String x:Key="ParQ_P1Q06">6. 請問您目前有沒有(或在過去12個月內)骨頭，關節或軟組織(肌肉，韌帶或肌腱)等問題，可能會因為運動而惡化病情?</sys:String>
+    <sys:String x:Key="ParQ_P1Q07">7. 請問您的醫生有沒有建議您，必須在醫療人員的監督下，才能運動?</sys:String>
+    <sys:String x:Key="ParQ_P2Q01">1.請問您有關節炎，骨質疏鬆症或背部問題嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q01a">1a.醫生開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)</sys:String>
+    <sys:String x:Key="ParQ_P2Q01b">1b.您有關節痛、近期骨折、骨質疏鬆或癌症導致的骨折、脊椎錯位(如脊椎滑脫) 或/和椎弓解離(一種背部脊柱的骨環斷裂狀況)嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q01c">1c.您有注射類固醇或服用類固醇藥物超過3個月嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q02">2.請問您現在患有任何類型的癌症嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q02a">2a.您被診斷出罹患肺癌/支氣管癌、多發性骨髓瘤(漿細胞的癌症)、頭部或頸部相關癌症嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q02b">2b.您正在接受癌症治療嗎? (如化學治療或放射線治療)</sys:String>
+    <sys:String x:Key="ParQ_P2Q03">3.請問您過去有心臟或心血管病史嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q03_">包括了冠狀動脈疾病、心臟衰竭、心律不整</sys:String>
+    <sys:String x:Key="ParQ_P2Q03a">3a.醫生開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)</sys:String>
+    <sys:String x:Key="ParQ_P2Q03b">3b.您有心律不整情況而需要用藥治療嗎? (如: 心房顫動、心室早期收縮)</sys:String>
+    <sys:String x:Key="ParQ_P2Q03c">3c.您有慢性心臟衰竭的情況嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q03d">3d.您被診斷有冠狀動脈(心血管)及並且已經至少2個月沒有進行規律的身體活動了嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q04">4.您有罹患高血壓嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q04a">4a.醫生開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)</sys:String>
+    <sys:String x:Key="ParQ_P2Q04b">4b.您休息時無論是否服藥，血壓平均高於 160/90 mmHg嗎? (若不知道您的血壓，請回答「是」)</sys:String>
+    <sys:String x:Key="ParQ_P2Q05">5.請問您有代謝相關疾病嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q05_">包含: 第1型糖尿病/第2型糖尿病/前期糖尿病。</sys:String>
+    <sys:String x:Key="ParQ_P2Q05a">5a.您的血糖時常超過 234mg/dL(13.0mmol/L) 嗎? (若您不確定，請回答「是」)</sys:String>
+    <sys:String x:Key="ParQ_P2Q05b">5b.您經常在運動或日常活動時出現低血糖的徵兆及症狀嗎? (包含: 顫抖、緊張、易怒、異常盜汗、頭昏或頭暈、精神錯亂、口齒不清、虛弱或困倦。)</sys:String>
+    <sys:String x:Key="ParQ_P2Q05c">5c.您有糖尿病併發症嗎? (如：心臟 / 血管疾病、眼睛症狀、腎臟問題以及腳趾、腳掌的感覺異常)</sys:String>
+    <sys:String x:Key="ParQ_P2Q05d">5d.您有其他代謝疾病嗎? (如甲狀腺失調、妊娠糖尿病、慢性腎病、肝臟疾病)</sys:String>
+    <sys:String x:Key="ParQ_P2Q05e">5e.您最近有計畫從是極度費力的運動嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q06">6.請問您是否有任何精神心理相關疾病或學習困難?</sys:String>
+    <sys:String x:Key="ParQ_P2Q06_">包含阿茲海默症、癡呆症、憂鬱、焦慮、飲食失調、精神障礙、智力障礙、唐氏症。</sys:String>
+    <sys:String x:Key="ParQ_P2Q06a">6a.醫師開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)</sys:String>
+    <sys:String x:Key="ParQ_P2Q06b">6b.您有唐氏症以及因背部狀況導致的神經、肌肉問題嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q07">7.請問您有呼吸相關疾病嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q07_">包含慢性阻塞型肺病、氣喘、肺動脈高血壓</sys:String>
+    <sys:String x:Key="ParQ_P2Q07a">7a.醫師開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)</sys:String>
+    <sys:String x:Key="ParQ_P2Q07b">7b.醫師曾說過您在休息、運動時的血氧濃度過低，而需要接受氧氣治療嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q07c">7c.若您有過敏，近期是否感受到胸悶、呼吸有喘鳴聲、呼吸困難、常態性咳嗽(每週超過 2 天)或者過去一週超過 2 天需要使用急救藥物?</sys:String>
+    <sys:String x:Key="ParQ_P2Q07d">7d.您被診斷出肺部血管的血壓偏高嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q08">8.請問您有脊椎損傷病史嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q08_">包含四肢癱瘓麻痺、半身不遂等。</sys:String>
+    <sys:String x:Key="ParQ_P2Q08a">8a.醫師開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)</sys:String>
+    <sys:String x:Key="ParQ_P2Q08b">8b.您有低血壓導致的暈眩、輕微頭痛或昏倒情況嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q08c">8c.您被診斷有突發性的高血壓嗎? (如：自主神經反射異常)</sys:String>
+    <sys:String x:Key="ParQ_P2Q09">9.請問您曾經中風嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q09_">包含短暫性腦缺血發作(俗稱小中風)、腦中風、腦血管事件</sys:String>
+    <sys:String x:Key="ParQ_P2Q09a">9a.醫師開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)</sys:String>
+    <sys:String x:Key="ParQ_P2Q09b">9b.您在行走與行動上有問題嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q09c">9c.您在 6 個月內曾經中風、神經或肌肉損傷嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q10">10.請問是否有未列出的健康狀況或兩種/兩種以上的慢性疾病問題?</sys:String>
+    <sys:String x:Key="ParQ_P2Q10a">10a.在過去12個月內，您曾經因頭部創傷導致昏眩、昏倒或失去意識，或是被診斷有腦震盪嗎?</sys:String>
+    <sys:String x:Key="ParQ_P2Q10b">10b.您有任何沒有在上述所提及的疾病狀況嗎? (如: 癲癇、神經性疾病、腎臟疾病?)</sys:String>
+    <sys:String x:Key="ParQ_P2Q10c">10c.您有兩種以上的慢性疾病嗎?</sys:String>
