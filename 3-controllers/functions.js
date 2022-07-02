@@ -248,6 +248,8 @@ function callAPI(param, loadingMessage) {
   });
 }
 
+
+
 async function checkUserIdExist() {
   //Call API:00 檢查 userId 有沒有重複參加 */
 
