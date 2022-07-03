@@ -11,7 +11,7 @@
 
   <!-- LINE Opengraph https://developers.line.biz/en/faq/tags/media/#how-are-the-url-previews-generated -->
 <!--  <meta property="og:image" content="https://raw.githubusercontent.com/forgeFitnessUgym/bodyMeasureLINE/master/ForgeLogo%E5%A4%A7.png" />  -->
-  <meta property="og:title" content="啟德 身體量測系統" />
+  <meta property="og:title" content="體適能量測系統" />
   <meta property="og:description" content=""/>
   <!-- End LINE Opengraph -->
    
@@ -58,7 +58,7 @@
     }
 
     .km-on-ios .km-header .km-navbar
-    /* for data-title="啟德- 身體組成自動量測系統" */
+    /* for data-title="宇康醫電體適能" */
     {
       background-color: coral;
       font-size: 16px;
@@ -76,7 +76,7 @@
     }
 
     .km-on-android .km-header .km-navbar
-    /* for data-title="啟德- 身體組成自動量測系統" */
+    /* for data-title="宇康醫電體適能" */
     {
       background-color: coral;
       font-size: 16px;
@@ -128,19 +128,19 @@
     }   
     
 
-  </style>
-  
-  <div id="errorMessage" style="display: none; margin-top: 2em; color: red; font-weight: bold" align="center">
-    <h3 class="NotoSansFont" style="margin-top: 2em; color: darkslategray; font-weight: bold">啟德-身體量測系統</h3>
-  </div>
-    
+  </style>  
 
   <!-- 客製修改 以下兩行 宇康醫電 --> 客戶  -->  
   <script>var 受託人="宇康醫電體適能"</script>
   <div id="forms" data-role="view" data-title="宇康醫電體適能" data-init="initForm" data-use-native-scrolling="true" style="font-family: 'Noto Sans TC'">      
           
     <div id="填寫說明" style="margin:20px; border-style:solid; border-color:gray; border-radius:10px">
-      <div style="margin:20px">為了您的安全，提升您的量測品質，以及減少您的等待時間，請先填寫 "個人基本資料" 和 "Parq 自我評量表"。謝謝您的耐心配合。</div>
+      <div style="margin:20px">為了您的安全，提升您的量測品質，以及減少您的等待時間，請先填寫</div>
+      <ul style="margin:20px">
+        <li style="font-weight:bold">個人基本資料</li>
+        <li style="font-weight:bold">Parq 自我評量表</li>
+      </ul> 
+      <div style="margin:20px">謝謝您的耐心配合。</div>
 
       <div align="center">
         <a id="我知道了按鈕" data-role="button" class="km-primary" style="background-color:coral; color: white; margin:1em; padding-left:3em; padding-right:3em" onclick="我知道了()" >我知道了</a> 
@@ -149,19 +149,11 @@
     </div>
         
     <div id="formData" style="display:none">
-<!--      <img id="LINE頭像" src="" class="km-thumbnail" style="width: 10em; height: 10em; margin: 1em auto; display: block; float: none;"/>-->
+      <!--<img id="logo" src="" class="km-thumbnail" style="width: 10em; height: 10em; margin: 1em auto; display: block; float: none;"/>-->
       
       <div class="NotoSansFont" style="margin:20px; font-size:20px; font-weight:bold">個人基本資料 (必填)</div>
 
       <ul data-role="listview" data-style="inset">
-<!--
-        <li>
-          <label class="km-label-above">預設常用健身房
-            <select id="預設常用健身房" type="text" class="NotoSansFont">
-            </select>
-          </label>
-        </li>       
--->
         <li>
           <label class="km-label-above">姓名
               <input id="formUserName" type="text" class="NotoSansFont"/>
@@ -208,6 +200,9 @@
       <div align="center">
         <a id="下一步Parq按鈕" data-role="button" class="km-primary" style="background-color:coral; color: white; margin:1em; padding-left:3em; padding-right:3em" onclick="填寫進行Parq()" >下一步，填寫進行 Parq 自我評量表</a> 
       </div>
+
+      <div id="space1" style="height:100px"></div>
+                  
     </div>
     
     <div id="PARQ" style="display:none">
@@ -819,14 +814,14 @@
         <a id="身體活動聲明按鈕" data-role="button" class="km-primary" style="background-color:coral; color: white; margin:1em; padding-left:3em; padding-right:3em" onclick="身體活動聲明()" >下一步，身體活動聲明</a> 
       </div> 
                                                                              
-                                                                                                                                       
+      <div id="space2" style="height:100px"></div>                                                                                                                                 
     </div>
     
     <div id="身體活動聲明" style="display:none">
       <div class="NotoSansFont" style="margin:20px; font-size:18px; font-weight:bold">3. 身體活動聲明</div>
       
       <div id="eval-OK" style="text-align:center; margin:20px">
-       <img src="icon_Parq_OK.png" >
+       <img src="icon_Parq_OK.png" height="50px">
         <div>
           <B>回答皆為「否」</B><br>
           您確定可以從事更多的身體活動<br>
@@ -846,8 +841,8 @@
       </div>
       
 
-      <div id="eval-Warn" style="text-align:center; margin:20px">
-       <img src="icon_Parq_Warn.png" >
+      <div id="eval-Warn" style="text-align:center; margin:20px; display:none">
+       <img src="icon_Parq_Warn.png" height="50px">
         <div>
           <B>回答有任一個或一個以上為「是」</B><br>
           <br>
@@ -870,67 +865,14 @@
       
       <div align="center">
         <a id="我同意按鈕" data-role="button" class="km-primary" style="background-color:coral; color: white; margin:1em; padding-left:3em; padding-right:3em" onclick="我同意()" >我同意</a> 
-      </div>       
+      </div>     
+      
+      <div id="space3" style="height:100px"></div>
       
     </div>
     
-    
-
-    <div id="個人資料使用Div" align="center" style="display:none">
-      <br>
-      點擊 <b>送出資料</b> 表示您同意個人資料使用條款
-      <br>
-      <a onclick="顯示個人資料同意書()">個人資料使用同意條款</a>
-      <div style="height: 100px"></div> 
-    </div>   
-
-    <div id="個人資料同意書Div" align="center" class="NotoSansFont" style="display:none">
-      <h1 style="text-align:center; height:60px; color:white; background-color:#ff4350; margin:0; padding-top: 15px">個人資料同意條款</h1>
-      <div style="margin: 20px; text-align: justify">
-        <div>您確認知悉宇康醫電股份有限公司(以下簡稱本公司)書面告知您以下事項： </div>
-        <div style="margin-top: 10px">一、自您勾選同意本同意書即日起，本公司於啟德經營合於營業登記項目或組織章程所定之業務之特定目的下，於經營業務之區域範圍內，由本公司及本公司關係企業合理使用、交換、處理及利用您所提供之個人資料包括姓名、身分證統一編號、暱稱、性別、出生年、身高、體重、運動習慣包括每月運動時間、每次運動時間及激烈程度等個人資料。</div>
-
-        <div style="margin-top: 10px">二、您同意本公司蒐集您在健身器材上的運動資料(例如：力量訓練、跑步機、飛輪車、橢圓機等器材對應的數據)，並於本公司及本公司關係企業合理使用、交換、處理及利用該運動資料。</div>  
-
-        <div style="margin-top: 10px">三、您同意個人資料利用之期間為特定目的存續期間。</div>    
-
-        <div style="margin-top: 10px">四、您同意個人資料利用之對象、地區及方式如下：</div>    
-
-        <div style="margin-left: 20px">(一) 對象：本公司(含受本公司委託處理事務之委外機構)、新北市政府、其他業務相關之公司或機構、本公司共同行銷或交互運用您資料之公司或機構、與本公司合作推廣業務之公司或機構。</div>    
-        <div style="margin-left: 20px">(二) 地區：前揭個人資料利用對象其國內及國外所在地。</div>                         
-        <div style="margin-left: 20px">(三)	方式：符合個人資料保護相關法令以自動化機器或其他非自動化之利用方式。</div>                                                                                                                 <div style="margin-top: 10px">五、如您不同意本公司為行銷及廣告推廣商品或服務，請隨時通知本公司。</div>          
-
-        <div style="margin-top: 10px">六、如日後因個人資料變動或其他原因而有查詢、閱覽或補充個人資訊、提供個人資料複本或欲請求停止處理利用或刪除您的資料之需求時，請來信或來電本公司(本公司目前地址為苗栗縣竹南鎮科北五路2號3樓，電話為037-777000分機8227；最新聯絡方式可至本公司企業網站[網址http://www.ucaremedi.com/]查詢)，本公司將有專人即時為您處理。</div>               
-
-        <div style="margin-top: 10px">七、您理解您所提供之資料必須正確及完整，如資料有所遺漏，將可能影響您的權益。</div>                                                                               
-        <div style="margin-top: 30px">* 茲同意宇康醫電股份有限公司於上述目的及範圍內使用、交換、處理及利用本人之個人資料。。</div> 
-
-        <div style="margin-top: 10px">* 茲同意宇康醫電股份有限公司使用、交換、處理及利用本人在健身器材上的運動資料。</div>  
-      </div>
-
-      <div align="center">
-        <a class="km-primary" style="color: white; margin:1em; padding-top:0.3em; padding-bottom: 0.3em; padding-left:3em; padding-right:3em" onclick="我知道了()" >我知道了</a>
-        <div style="height: 100px"></div>
-      </div> 
-
-    </div> 
-
-    
   </div>  
   
-  <div data-id="mainDiv" data-role="layout" data-show="showDemoLayout" data-hide="removeView">
-    <header data-role="header">
-      <div data-role="navbar" class="km-accent">
-<!--        <a data-align="left" data-icon="arrow-w" href="#/" data-role="backbutton" data-transition="slide reverse"></a>-->
-        <span data-role="view-title"></span>
-      </div>
-    </header>
-  </div>
-
-
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
- 
   <script>
     var useLocalAPIs = false;
 //    try {
@@ -991,10 +933,12 @@
     }
     
     function 填寫進行Parq(){
+      $("#space1").hide();
       $("#PARQ").show();      
     }
     
     function 身體活動聲明(){
+      $("#space2").hide();      
       $("#身體活動聲明").show();
     }
     
