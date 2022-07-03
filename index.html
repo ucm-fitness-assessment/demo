@@ -151,14 +151,21 @@
 
       <div align="center">
         <a id="我知道了按鈕" data-role="button" class="km-primary" style="background-color:coral; color: white; margin:1em; padding-left:3em; padding-right:3em" onclick="我知道了()" >我知道了</a> 
-      </div>
-                  
+      </div>                  
     </div>
+       
+    <div id="必填說明" style="margin:20px; border-style:solid; border-color:gray; border-width:1px; border-radius:10px; display:none">
+      <div style="margin:20px">所有欄位都為必填，請檢查是否有遺漏。謝謝您的合作。</div>
+
+      <div align="center">
+        <a id="我知道了按鈕" data-role="button" class="km-primary" style="background-color:coral; color: white; margin:1em; padding-left:3em; padding-right:3em" onclick="我知道了()" >我知道了</a> 
+      </div>                  
+    </div>       
         
     <div id="formData" style="display:none">
       <!--<img id="logo" src="" class="km-thumbnail" style="width: 10em; height: 10em; margin: 1em auto; display: block; float: none;"/>-->
       
-      <div class="NotoSansFont" style="margin:20px; font-size:20px; font-weight:bold">個人基本資料 (必填)</div>
+      <div class="NotoSansFont" style="margin:20px; font-size:20px; font-weight:bold">個人基本資料 (所有欄位必填)</div>
 
       <ul data-role="listview" data-style="inset">
         <li>
@@ -188,7 +195,7 @@
         </li> 
        <li>
           <label class="km-label-above">體重
-            <input id="formUserHeight" class="NotoSansFont" type="text" placeholder="例如: 70"/> 
+            <input id="formUserWeight" class="NotoSansFont" type="text" placeholder="例如: 70"/> 
           </label> 
           <span style="float:left ;margin-bottom: -1em; margin-top: -10px; margin-left: 5em">kg</span>
         </li>         
@@ -199,7 +206,7 @@
         </li>
         <li>
           <label class="km-label-above">身分字號或護照號碼
-            <input id="formUserPhone" class="NotoSansFont" type="text" placeholder="A1216XXXXX"/> 
+            <input id="formUserID" class="NotoSansFont" type="text" placeholder="A1216XXXXX"/> 
           </label> 
         </li>        
       </ul>
@@ -221,8 +228,8 @@
           <span style=margin-left:7px>是</span>
           <span style=margin-left:12px>否</span>
         </div>
-        <input type="radio" id="q1-yes" name="Q1" tabindex="1">
-        <input type="radio" id="q1-no"  name="Q1" tabindex="2">
+        <input type="radio" id="q1-yes" name="Q1" tabindex="1" onclick="answer_click()">
+        <input type="radio" id="q1-no"  name="Q1" tabindex="2" onclick="answer_click()">
         
         <span style="font-size:16px; font-weight:bold">
           您的醫生說過您有心臟病或高血壓嗎?
@@ -234,21 +241,21 @@
           <span style=margin-left:7px>是</span>
           <span style=margin-left:12px>否</span>
         </div>
-        <input type="radio" id="q2-yes" name="Q2" tabindex="3">
-        <input type="radio" id="q2-no"  name="Q2" tabindex="4">
+        <input type="radio" id="q2-yes" name="Q2" tabindex="3" onclick="answer_click()">
+        <input type="radio" id="q2-no"  name="Q2" tabindex="4" onclick="answer_click()">
         
         <span style="font-size:16px; font-weight:bold">
           在休息狀態下、日常活動，或是運動時，您會感覺胸部疼痛嗎?
         </span> 
       </div>        
       
-      <div id="Q3" style="margin-left:20px; margin-bottom:20px">
+      <div id="Q3" style="margin-left:20px; margin-bottom:20px" onclick="answer_click()">
         <div>
           <span style=margin-left:7px>是</span>
           <span style=margin-left:12px>否</span>
         </div>
-        <input type="radio" id="q3-yes" name="Q3" tabindex="5">
-        <input type="radio" id="q3-no"  name="Q3" tabindex="6">
+        <input type="radio" id="q3-yes" name="Q3" tabindex="5" onclick="answer_click()">
+        <input type="radio" id="q3-no"  name="Q3" tabindex="6" onclick="answer_click()">
         
         <span style="font-size:16px; font-weight:bold">
           過去12個月內，您是否曾經因為頭暈而失去平衡，或是失去意識嗎? (如果您的頭暈與過度呼吸有關，包括劇烈運動時，請回答否)。
@@ -260,8 +267,8 @@
           <span style=margin-left:7px>是</span>
           <span style=margin-left:12px>否</span>
         </div>
-        <input type="radio" id="q4-yes" name="Q4" tabindex="1">
-        <input type="radio" id="q4-no"  name="Q4" tabindex="2">
+        <input type="radio" id="q4-yes" name="Q4" tabindex="1" onclick="answer_click()">
+        <input type="radio" id="q4-no"  name="Q4" tabindex="2" onclick="answer_click()">
         
         <span style="font-size:16px; font-weight:bold">
           請問您有沒有其他慢性疾病 (除了心臟病、高血壓外)?
@@ -273,8 +280,8 @@
           <span style=margin-left:7px>是</span>
           <span style=margin-left:12px>否</span>
         </div>
-        <input type="radio" id="q5-yes" name="Q5" tabindex="1">
-        <input type="radio" id="q5-no"  name="Q5" tabindex="2">
+        <input type="radio" id="q5-yes" name="Q5" tabindex="1" onclick="answer_click()">
+        <input type="radio" id="q5-no"  name="Q5" tabindex="2" onclick="answer_click()">
         
         <span style="font-size:16px; font-weight:bold">
           請問您目前有沒有服用處方藥，來治療慢性疾病?
@@ -286,8 +293,8 @@
           <span style=margin-left:7px>是</span>
           <span style=margin-left:12px>否</span>
         </div>
-        <input type="radio" id="q6-yes" name="Q6" tabindex="1">
-        <input type="radio" id="q6-no"  name="Q6" tabindex="2">
+        <input type="radio" id="q6-yes" name="Q6" tabindex="1" onclick="answer_click()">
+        <input type="radio" id="q6-no"  name="Q6" tabindex="2" onclick="answer_click()">
         
         <span style="font-size:16px; font-weight:bold">
           請問您目前有沒有(或在過去12個月內)骨頭，關節或軟組織(肌肉，韌帶或肌腱)等問題，可能會因為運動而惡化病情?
@@ -299,8 +306,8 @@
           <span style=margin-left:7px>是</span>
           <span style=margin-left:12px>否</span>
         </div>
-        <input type="radio" id="q7-yes" name="Q7" tabindex="1">
-        <input type="radio" id="q7-no"  name="Q7" tabindex="2">
+        <input type="radio" id="q7-yes" name="Q7" tabindex="1" onclick="answer_click()">
+        <input type="radio" id="q7-no"  name="Q7" tabindex="2" onclick="answer_click()">
         
         <span style="font-size:16px; font-weight:bold">
           請問您的醫生有沒有建議您，必須在醫療人員的監督下，才能運動?
@@ -327,8 +334,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q1a-yes" name="P2Q1a" tabindex="1">
-          <input type="radio" id="p2q1a-no"  name="P2Q1a" tabindex="2">
+          <input type="radio" id="p2q1a-yes" name="P2Q1a" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q1a-no"  name="P2Q1a" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16pxx">
             醫生開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)
@@ -338,8 +345,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q1b-yes" name="P2Q1b" tabindex="1">
-          <input type="radio" id="p2q1b-no"  name="P2Q1b" tabindex="2">
+          <input type="radio" id="p2q1b-yes" name="P2Q1b" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q1b-no"  name="P2Q1b" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您有關節痛、近期骨折、骨質疏鬆或癌症導致的骨折、脊椎錯位(如脊椎滑脫) 或/和椎弓解離(一種背部脊柱的骨環斷裂狀況)嗎?
@@ -349,8 +356,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q1c-yes" name="P2Q1c" tabindex="1">
-          <input type="radio" id="p2q1c-no"  name="P2Q1c" tabindex="2">
+          <input type="radio" id="p2q1c-yes" name="P2Q1c" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q1c-no"  name="P2Q1c" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您有注射類固醇或服用類固醇藥物超過3個月嗎?
@@ -377,8 +384,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q2a-yes" name="P2Q2a" tabindex="1">
-          <input type="radio" id="p2q2a-no"  name="P2Q2a" tabindex="2">
+          <input type="radio" id="p2q2a-yes" name="P2Q2a" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q2a-no"  name="P2Q2a" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您被診斷出罹患肺癌/支氣管癌、多發性骨髓瘤(漿細胞的癌症)、頭部或頸部相關癌症嗎?
@@ -388,8 +395,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q2b-yes" name="P2Q2b" tabindex="1">
-          <input type="radio" id="p2q2b-no"  name="P2Q2b" tabindex="2">
+          <input type="radio" id="p2q2b-yes" name="P2Q2b" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q2b-no"  name="P2Q2b" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您正在接受癌症治療嗎? (如化學治療或放射線治療)
@@ -406,7 +413,7 @@
           <span style=margin-left:12px>否</span>
         </div>
         <input type="radio" id="p2q3-yes" name="P2Q3" tabindex="1" onclick="show_sub_yes(3)">
-        <input type="radio" id="p2q3-no"  name="P2Q3"  tabindex="2" onclick="show_sub_no(3)">
+        <input type="radio" id="p2q3-no"  name="P2Q3" tabindex="2" onclick="show_sub_no(3)">
         
         <span style="font-size:16px; font-weight:bold">
           3. 請問您過去有心臟或心血管病史嗎? (包括了冠狀動脈疾病、心臟衰竭、心律不整)
@@ -417,8 +424,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q3a-yes" name="P2Q3a" tabindex="1">
-          <input type="radio" id="p2q3a-no"  name="P2Q3a" tabindex="2">
+          <input type="radio" id="p2q3a-yes" name="P2Q3a" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q3a-no"  name="P2Q3a" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             醫生開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)
@@ -428,8 +435,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q3b-yes" name="P2Q3b" tabindex="1">
-          <input type="radio" id="p2q3b-no"  name="P2Q3b" tabindex="2">
+          <input type="radio" id="p2q3b-yes" name="P2Q3b" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q3b-no"  name="P2Q3b" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您有心律不整情況而需要用藥治療嗎? (如: 心房顫動、心室早期收縮)
@@ -439,8 +446,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q3c-yes" name="P2Q3c" tabindex="1">
-          <input type="radio" id="p2q3c-no"  name="P2Q3c" tabindex="2">
+          <input type="radio" id="p2q3c-yes" name="P2Q3c" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q3c-no"  name="P2Q3c" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您有慢性心臟衰竭的情況嗎?
@@ -450,8 +457,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q3d-yes" name="P2Q3d" tabindex="1">
-          <input type="radio" id="p2q3d-no" name="P2Q3d" tabindex="2">
+          <input type="radio" id="p2q3d-yes" name="P2Q3d" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q3d-no"  name="P2Q3d" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您被診斷有冠狀動脈(心血管)及並且已經至少2個月沒有進行規律的身體活動了嗎?
@@ -467,7 +474,7 @@
           <span style=margin-left:12px>否</span>
         </div>
         <input type="radio" id="p2q4-yes" name="P2Q4" tabindex="1" onclick="show_sub_yes(4)">
-        <input type="radio" id="p2q4-no"  name="P2Q4"  tabindex="2" onclick="show_sub_no(4)">
+        <input type="radio" id="p2q4-no"  name="P2Q4" tabindex="2" onclick="show_sub_no(4)">
         
         <span style="font-size:16px; font-weight:bold">
           4. 請問您有罹患高血壓嗎?
@@ -478,8 +485,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q4a-yes" name="P2Q4a" tabindex="1">
-          <input type="radio" id="p2q4a-no"  name="P2Q4a" tabindex="2">
+          <input type="radio" id="p2q4a-yes" name="P2Q4a" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q4a-no"  name="P2Q4a" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             醫生開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)
@@ -489,8 +496,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q4b-yes" name="P2Q4b" tabindex="1">
-          <input type="radio" id="p2q4b-no"  name="P2Q4b" tabindex="2">
+          <input type="radio" id="p2q4b-yes" name="P2Q4b" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q4b-no"  name="P2Q4b" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您休息時無論是否服藥，血壓平均高於 160/90 mmHg嗎? (若不知道您的血壓，請回答「是」)
@@ -506,7 +513,7 @@
           <span style=margin-left:12px>否</span>
         </div>
         <input type="radio" id="p2q5-yes" name="P2Q5" tabindex="1" onclick="show_sub_yes(5)">
-        <input type="radio" id="p2q5-no"  name="P2Q5"  tabindex="2" onclick="show_sub_no(5)">
+        <input type="radio" id="p2q5-no"  name="P2Q5" tabindex="2" onclick="show_sub_no(5)">
         
         <span style="font-size:16px; font-weight:bold">
           5. 請問您有代謝相關疾病嗎? 包含: 第1型糖尿病/第2型糖尿病/前期糖尿病。
@@ -517,8 +524,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q5a-yes" name="P2Q5a" tabindex="1">
-          <input type="radio" id="p2q5a-no"  name="P2Q5b" tabindex="2">
+          <input type="radio" id="p2q5a-yes" name="P2Q5a" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q5a-no"  name="P2Q5b" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您的血糖時常超過 234mg/dL(13.0mmol/L) 嗎? (若您不確定，請回答「是」)
@@ -528,8 +535,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q5b-yes" name="P2Q5b" tabindex="1">
-          <input type="radio" id="p2q5b-no"  name="P2Q5b" tabindex="2">
+          <input type="radio" id="p2q5b-yes" name="P2Q5b" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q5b-no"  name="P2Q5b" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您經常在運動或日常活動時出現低血糖的徵兆及症狀嗎? (包含: 顫抖、緊張、易怒、異常盜汗、頭昏或頭暈、精神錯亂、口齒不清、虛弱或困倦。)
@@ -539,8 +546,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q5c-yes" name="P2Q5c" tabindex="1">
-          <input type="radio" id="p2q5c-no"  aria-describedby=""name="P2Q5c" tabindex="2">
+          <input type="radio" id="p2q5c-yes" name="P2Q5c" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q5c-no"  name="P2Q5c" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您有糖尿病併發症嗎? (如：心臟 / 血管疾病、眼睛症狀、腎臟問題以及腳趾、腳掌的感覺異常)
@@ -550,8 +557,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q5d-yes" name="P2Q5d" tabindex="1">
-          <input type="radio" id="p2q5d-no"  name="P2Q5d" tabindex="2">
+          <input type="radio" id="p2q5d-yes" name="P2Q5d" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q5d-no"  name="P2Q5d" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您有其他代謝疾病嗎? (如甲狀腺失調、妊娠糖尿病、慢性腎病、肝臟疾病)
@@ -561,8 +568,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q5e-yes" name="P2Q5e" tabindex="1">
-          <input type="radio" id="p2q5e-no"  name="P2Q5e" tabindex="2">
+          <input type="radio" id="p2q5e-yes" name="P2Q5e" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q5e-no"  name="P2Q5e" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您最近有計畫從事極度費力的運動嗎?
@@ -588,8 +595,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q6a-yes" name="P2Q6a" tabindex="1">
-          <input type="radio" id="p2q6a-no"  name="P2Q6a" tabindex="2">
+          <input type="radio" id="p2q6a-yes" name="P2Q6a" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q6a-no"  name="P2Q6a" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             醫師開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」
@@ -599,8 +606,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q6b-yes" name="P2Q6b" tabindex="1">
-          <input type="radio" id="p2q6b-no"  name="P2Q6b" tabindex="2">
+          <input type="radio" id="p2q6b-yes" name="P2Q6b" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q6b-no"  name="P2Q6b" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您有唐氏症以及因背部狀況導致的神經、肌肉問題嗎?
@@ -614,7 +621,7 @@
           <span style=margin-left:12px>否</span>
         </div>
         <input type="radio" id="p2q7-yes" name="P2Q7" tabindex="1" onclick="show_sub_yes(7)">
-        <input type="radio" id="p2q7-no"  name="P2Q7"  tabindex="2" onclick="show_sub_no(7)">
+        <input type="radio" id="p2q7-no"  name="P2Q7" tabindex="2" onclick="show_sub_no(7)">
         
         <span style="font-size:16px; font-weight:bold">
           7. 請問您有呼吸相關疾病嗎? 包含慢性阻塞型肺病、氣喘、肺動脈高血壓。
@@ -625,8 +632,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q7a-yes" name="P2Q7a" tabindex="1">
-          <input type="radio" id="p2q7a-no"  name="P2Q7a" tabindex="2">
+          <input type="radio" id="p2q7a-yes" name="P2Q7a" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q7a-no"  name="P2Q7a" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             醫師開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)
@@ -636,8 +643,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q7b-yes" name="P2Q7b" tabindex="1">
-          <input type="radio" id="p2q7b-no"  name="P2Q7b" tabindex="2">
+          <input type="radio" id="p2q7b-yes" name="P2Q7b" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q7b-no"  name="P2Q7b" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             醫師曾說過您在休息、運動時的血氧濃度過低，而需要接受氧氣治療嗎?
@@ -647,8 +654,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q7c-yes" name="P2Q7c" tabindex="1">
-          <input type="radio" id="p2q7c-no"  name="P2Q7c" tabindex="2">
+          <input type="radio" id="p2q7c-yes" name="P2Q7c" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q7c-no"  name="P2Q7c" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             若您有過敏，近期是否感受到胸悶、呼吸有喘鳴聲、呼吸困難、常態性咳嗽(每週超過 2 天)或者過去一週超過 2 天需要使用急救藥物?
@@ -658,8 +665,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q7d-yes" name="P2Q7d" tabindex="1">
-          <input type="radio" id="p2q7d-no"  name="P2Q7d" tabindex="2">
+          <input type="radio" id="p2q7d-yes" name="P2Q7d" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q7d-no"  name="P2Q7d" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您被診斷出肺部血管的血壓偏高嗎?
@@ -674,7 +681,7 @@
           <span style=margin-left:12px>否</span>
         </div>
         <input type="radio" id="p2q8-yes" name="P2Q8" tabindex="1" onclick="show_sub_yes(8)">
-        <input type="radio" id="p2q8-no"  name="P2Q8"  tabindex="2" onclick="show_sub_no(8)">
+        <input type="radio" id="p2q8-no"  name="P2Q8" tabindex="2" onclick="show_sub_no(8)">
         
         <span style="font-size:16px; font-weight:bold">
           8. 請問您有脊椎損傷病史嗎? 包含四肢癱瘓麻痺、半身不遂等。
@@ -685,8 +692,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q8a-yes" name="P2Q8a" tabindex="1">
-          <input type="radio" id="p2q8a-no"  name="P2Q8a" tabindex="2">
+          <input type="radio" id="p2q8a-yes" name="P2Q8a" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q8a-no"  name="P2Q8a" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             醫師開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)
@@ -696,8 +703,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q8b-yes" name="P2Q8b" tabindex="1">
-          <input type="radio" id="p2q8b-no"  name="P2Q8b" tabindex="2">
+          <input type="radio" id="p2q8b-yes" name="P2Q8b" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q8b-no"  name="P2Q8b" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您有低血壓導致的暈眩、輕微頭痛或昏倒情況嗎?
@@ -707,8 +714,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q8c-yes" name="P2Q8c" tabindex="1">
-          <input type="radio" id="p2q8c-no"  name="P2Q8c" tabindex="2">
+          <input type="radio" id="p2q8c-yes" name="P2Q8c" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q8c-no"  name="P2Q8c" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您被診斷有突發性的高血壓嗎? (如：自主神經反射異常)
@@ -734,8 +741,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q9a-yes" name="P2Q9a" tabindex="1">
-          <input type="radio" id="p2q9a-no"  name="P2Q9a" tabindex="2">
+          <input type="radio" id="p2q9a-yes" name="P2Q9a" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q9a-no"  name="P2Q9a" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             醫師開立了藥物與其他治療處方，還是難以控制您的病況嗎? (若近期無接受藥物或其他治療，請回答「否」)
@@ -745,8 +752,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q9b-yes" name="P2Q9b" tabindex="1">
-          <input type="radio" id="p2q9b-no"  name="P2Q9b" tabindex="2">
+          <input type="radio" id="p2q9b-yes" name="P2Q9b" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q9b-no"  name="P2Q9b" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您在行走與行動上有問題嗎?
@@ -756,8 +763,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q9c-yes" name="P2Q9c" tabindex="1">
-          <input type="radio" id="p2q9c-no"  name="P2Q9c" tabindex="2">
+          <input type="radio" id="p2q9c-yes" name="P2Q9c" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q9c-no"  name="P2Q9c" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您在 6 個月內曾經中風、神經或肌肉損傷嗎?
@@ -784,8 +791,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q10a-yes" name="P2Q10a" tabindex="1">
-          <input type="radio" id="p2q10a-no"  name="P2Q10a" tabindex="2">
+          <input type="radio" id="p2q10a-yes" name="P2Q10a" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q10a-no"  name="P2Q10a" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             在過去12個月內，您曾經因頭部創傷導致昏眩、昏倒或失去意識，或是被診斷有腦震盪嗎?
@@ -795,8 +802,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q10b-yes" name="P2Q10b" tabindex="1">
-          <input type="radio" id="p2q10b-no"  name="P2Q10b" tabindex="2">
+          <input type="radio" id="p2q10b-yes" name="P2Q10b" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q10b-no"  name="P2Q10b" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您有任何沒有在上述所提及的疾病狀況嗎? (如: 癲癇、神經性疾病、腎臟疾病)
@@ -806,8 +813,8 @@
             <span style=margin-left:7px>是</span>
             <span style=margin-left:12px>否</span>
           </div>
-          <input type="radio" id="p2q10c-yes" name="P2Q10c" tabindex="1">
-          <input type="radio" id="p2q10c-no"  name="P2Q10c" tabindex="2">
+          <input type="radio" id="p2q10c-yes" name="P2Q10c" tabindex="1" onclick="answer_click()">
+          <input type="radio" id="p2q10c-no"  name="P2Q10c" tabindex="2" onclick="answer_click()">
 
           <span style="font-size:16px">
             您有兩種以上的慢性疾病嗎?
@@ -827,7 +834,7 @@
     <div id="身體活動聲明" style="display:none">
       <div class="NotoSansFont" style="margin:20px; font-size:18px; font-weight:bold">3. 身體活動聲明</div>
       
-      <div id="eval-OK" style="text-align:center; margin:20px">
+      <div id="eval-OK" style="text-align:center; margin:20px; display:none">
        <img src="icon_Parq_OK.png" height="50px">
         <div>
           <B>回答皆為「否」</B><br>
@@ -905,31 +912,86 @@
 
     function 我知道了(){
       $("#填寫說明").hide();      
+      $("#必填說明").hide();      
       $("#formData").show();
     }
     
     function 填寫進行Parq(){
-      $("#space1").hide();
-      $("#PARQ").show();      
+      if (   $("#formUserName").val()=="" 
+          || $("#formUserGender").val()==""
+          || $("#formUserBirth").val()==""
+          || $("#formUserHeight").val()==""
+          || $("#formUserWeight").val()==""
+          || $("#formUserPhone").val()==""
+          || $("#formUserID").val()==""
+         ) {
+        $("#必填說明").show(); 
+      } else {     
+        $("#必填說明").hide(); 
+        $("#space1").hide();
+        $("#PARQ").show();  
+      }
     }
     
     function 身體活動聲明(){
-      $("#space2").hide();      
+      var answerHasYes=false;
+      
+      $("#space2").hide();   
+      
+      for (var i=1; i<8;i++){
+        //q#-yes
+        var q_yes = "#q"+i.toString()+"-yes";
+        //console.log(i);
+        if ($(q_yes).prop('checked')){
+          answerHasYes=true;
+          break;
+        }
+      }
+      
+      for (var i=1; i<11;i++){
+        //p2q#-yes
+        var q_yes = "#p2q"+i.toString()+"-yes";
+        //console.log(i);
+        if ($(q_yes).prop('checked')){
+          answerHasYes=true;
+          break;
+        }
+      }      
+      console.log(answerHasYes);
+      
       $("#身體活動聲明").show();
+      if (answerHasYes) {
+        $("#eval-Warn").show();
+        $("#eval-OK").hide();
+      }
+      else {
+        $("#eval-OK").show();
+        $("#eval-Warn").hide();
+      }
+        
     }
     
     function show_sub_yes(q_num){
       //P2Q1_sub
       var q_sub="#P2Q"+q_num.toString()+"_sub";
-      console.log(q_sub);
+      //console.log(q_sub);
       $(q_sub).show();
+      $("#身體活動聲明").hide();
+      $("#space2").show();
     }
     
     function show_sub_no(q_num){      
       var q_sub="#P2Q"+q_num.toString()+"_sub";
-      console.log(q_sub);
+      //console.log(q_sub);
       $(q_sub).hide();
+      $("#身體活動聲明").hide();
+      $("#space2").show();
     } 
+    
+    function answer_click(){
+      $("#身體活動聲明").hide();
+      $("#space2").show();      
+    }
     
     
     
