@@ -23,8 +23,6 @@
 <!--  <link href="https://kendo.cdn.telerik.com/2020.1.114/styles/kendo.common-nova.min.css" rel="stylesheet" />-->
 <!--  <link href="https://kendo.cdn.telerik.com/2020.1.114/styles/kendo.nova.min.css" rel="stylesheet" />-->
   <link href="https://kendo.cdn.telerik.com/2020.1.114/styles/kendo.mobile.nova.min.css" rel="stylesheet" />     
-
-  <link href="css/courseStyle.css" rel="stylesheet" />
      
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="https://kendo.cdn.telerik.com/2020.1.114/js/kendo.all.min.js"></script>
@@ -847,7 +845,7 @@
           
           <div style="text-align:left">        
             <b>請詳細閱讀以下聲明後並點選「我同意」按鈕</b><br><br>
-            我本人，<span id="username"></span>，已詳細閱讀且保證完整填寫問卷，我了解此身體活動聲明有效期限為從填寫後起算12的月內，且若填寫人身體狀況改變使與問券填寫內容不同則失效。<br><br>
+            我本人，<span id="usernameOK"></span>，已詳細閱讀且保證完整填寫問卷，我了解此身體活動聲明有效期限為從填寫後起算12的月內，且若填寫人身體狀況改變使與問券填寫內容不同則失效。<br><br>
             我也了解受託人「<span id="受託人">宇康醫電</span>」可保留此份評量供記錄保存，此情況下受託人須依國家規定保存個人健康資訊，並確保資訊的隱私性，且不得誤用或不當揭露資訊。<br><br>
             
           </div>   
@@ -866,7 +864,7 @@
           
           <div style="text-align:left">        
             <b>請詳細閱讀以下聲明後並點選「我同意」按鈕</b><br><br>
-            我本人，<span id="username"></span>，已詳細閱讀且保證完整填寫問卷，我了解此身體活動聲明有效期限為從填寫後起算12的月內，且若填寫人身體狀況改變使與問券填寫內容不同則失效。<br><br>
+            我本人，<span id="usernameWarn"></span>，已詳細閱讀且保證完整填寫問卷，我了解此身體活動聲明有效期限為從填寫後起算12的月內，且若填寫人身體狀況改變使與問券填寫內容不同則失效。<br><br>
             我也了解受託人「<span id="受託人">宇康醫電</span>」可保留此份評量供記錄保存，此情況下受託人須依國家規定保存個人健康資訊，並確保資訊的隱私性，且不得誤用或不當揭露資訊。<br><br>
             
           </div>   
@@ -935,6 +933,9 @@
     
     function 身體活動聲明(){
       var answerHasYes=false;
+      
+      $("#usernameOK").text($("#formUserName").val());
+      $("#usernameWarn").text($("#formUserName").val());
       
       $("#space2").hide();   
       
