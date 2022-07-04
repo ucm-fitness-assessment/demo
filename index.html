@@ -139,6 +139,7 @@
   <script>var 受託人="宇康醫電體適能"</script>
   <div id="forms" data-role="view" data-title="宇康醫電體適能" data-init="initForm" data-use-native-scrolling="true" style="font-family: 'Noto Sans TC'">      
           
+<!--
     <div id="填寫說明" style="margin:20px; border-style:solid; border-color:gray; border-width:1px; border-radius:10px; display:none">
       <div style="margin:20px">為了您的安全，提升您的量測品質，以及減少您的等待時間，請先填寫</div>
       <ul style="margin:20px">
@@ -151,6 +152,7 @@
         <a id="我知道了按鈕" data-role="button" class="km-primary" style="background-color:coral; color: white; margin:1em; padding-left:3em; padding-right:3em" onclick="我知道了()" >我知道了</a> 
       </div>                  
     </div>
+-->
        
     <div id="必填說明" style="margin:20px; border-style:solid; border-color:gray; border-width:1px; border-radius:10px; display:none; position:absolute; top:300px;  z-index:99; background-color: white">
       <div style="margin:20px">所有欄位都為必填，請檢查是否有遺漏。謝謝您的合作。</div>
@@ -165,7 +167,8 @@
       
       <div style="font-size:18px; background-color: antiquewhite">
         <div style="height:1px"></div>
-        <div style="margin:20px"><span id="welcomName"></span> 歡迎您! 為了您的安全，提升您的量測品質，以及減少您的等待時間，請先填寫</div>
+        <div style="margin:20px"><span id="welcomName"></span>歡迎您! </div>
+        <div style="margin:20px">為了您的安全，提升您的量測品質，以及減少您的等待時間，請先填寫</div>
         <ul style="margin:20px">
           <li style="font-weight:bold">個人基本資料</li>
           <li style="font-weight:bold">Parq 自我評量表</li>
@@ -920,8 +923,8 @@
 
 
     function 我知道了(){
-      $("#填寫說明").hide();      
-      $("#必填說明").hide();      
+      //$("#填寫說明").hide();      
+      //$("#必填說明").hide();      
       $("#formData").show();
     }
     
@@ -934,9 +937,10 @@
           || $("#formUserPhone").val()==""
           || $("#formUserID").val()==""
          ) {
-        $("#必填說明").show(); 
+        //$("#必填說明").show();
+        alert("所有欄位都為必填，請檢查是否有遺漏。謝謝您的合作。");
       } else {     
-        $("#必填說明").hide(); 
+        //$("#必填說明").hide(); 
         $("#space1").hide();
         $("#PARQ").show();  
       }
@@ -1013,7 +1017,7 @@
     }
     
     function 我同意(){
-      if ($("#cbox1").prop('checked')) alert("資料以上傳成功，謝謝您!");
+      if ($("#cbox1").prop('checked')) alert("資料已上傳成功，謝謝您!");
     }
     
   </script>
