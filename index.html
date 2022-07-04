@@ -163,7 +163,8 @@
     <div id="formData" style="display:block">
       <!--<img id="logo" src="" class="km-thumbnail" style="width: 10em; height: 10em; margin: 1em auto; display: block; float: none;"/>-->
       
-      <div style="font-size:18px">
+      <div style="font-size:18px; background-color: antiquewhite">
+        <div style="height:1px"></div>
         <div style="margin:20px"><span id="welcomName"></span> 歡迎您! 為了您的安全，提升您的量測品質，以及減少您的等待時間，請先填寫</div>
         <ul style="margin:20px">
           <li style="font-weight:bold">個人基本資料</li>
@@ -880,12 +881,12 @@
         </div>  
       </div>
             
-      <div style="margin-left: 20px"><input type="checkbox" id="cbox1"> 
+      <div style="margin-left: 20px"><input type="checkbox" id="cbox1" onclick="了解()"> 
         <span style="font-size:18px; font-weight:bold">我已完全了解並確實回答本問卷問題</span>
       </div>
       
       <div align="center">
-        <a id="我同意按鈕" data-role="button" class="km-primary" style="background-color:coral; color: white; margin:1em; padding-left:3em; padding-right:3em" onclick="我同意()" >我同意</a> 
+        <a id="我同意按鈕" data-role="button" class="km-primary" style="background-color:darkgray; color: white; margin:1em; padding-left:3em; padding-right:3em" onclick="我同意()" >我同意</a> 
       </div>     
       
       <div id="space3" style="height:100px"></div>
@@ -1004,7 +1005,16 @@
       $("#space2").show();      
     }
     
+    function 了解(){
+      if ($("#cbox1").prop('checked')) 
+        $("#我同意按鈕").css("background-color", "coral");
+      else
+        $("#我同意按鈕").css("background-color", "darkgray");
+    }
     
+    function 我同意(){
+      if ($("#cbox1").prop('checked')) alert("資料以上傳成功，謝謝您!");
+    }
     
   </script>
 </body>
