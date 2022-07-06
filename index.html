@@ -1103,19 +1103,20 @@
         post_body.params.data_dict=data_dict;
         console.log(JSON.stringify(post_body));
         
-       
+        $.loading.start("上傳資料中...")
         //postData(add_API, JSON.stringify(post_body))
         postData(add_API, post_body)
-//          .then(data => console.log(data)) // JSON from `response.json()` call
-//          .catch(error => console.error(error))        
+          .then( (data) => { // JSON from `response.json()` call
+              console.log(data); 
+            }
+          )      
         
-//        alert("資料已上傳成功，謝謝您!");
+
       }
     }
     
 
     function postData(url, data) {
-      // Default options are marked with *
 //      return fetch(url, {
 //        body: JSON.stringify(data), // must match 'Content-Type' header
 //        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -1137,9 +1138,17 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
       };
-      fetch(url, requestOptions)
-          .then(response => response.json())
-          .then(data => console.log(data));      
+      return fetch(url, requestOptions)
+        .then((response) => {
+          $.loading.end();
+          alert("資料已上傳成功，謝謝您!");           
+          response.json();
+        })  
+        .catch((error) => {
+          $.loading.end();
+          alert("資料上傳失敗，請檢查網路再試一次。若一直有上傳問題，請洽管理員諮詢。");         
+          console.error(error);        
+        })  
     }
     
   </script>
