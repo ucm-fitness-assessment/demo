@@ -1,14 +1,13 @@
-<!--https://demos.telerik.com/kendo-ui/content/shared/js/mobile-examples.js-->
-<!--?displayName=小華&userId=U722be0c9c9d36e011c0e556bd2047819&pictureUrl=www.google.com-->
-<!--?displayName=小A&userId=U72Abe0c9c9d36e011c0e556bd2047819&pictureUrl=https://media.tractorsupply.com/is/image/TractorSupplyCompany/1305371?$456$  -->
-<!--?displayName=Paul%20Kang&userId=U8570ed5006325d504933612308d0fddf&pictureUrl=https://profile.line-scdn.net/0m00af3784725150d454061f6166cf75d95eb255c87861    -->
-    
 <!DOCTYPE html>
 <html>
-
+  <script>
+    // Custom part
+    var group_ID="UCM";
+    var site_ID="demo";
+    var add_API="https://ilxgxw0o3a.execute-api.ap-northeast-1.amazonaws.com/ugym/11/v1/elder_training/profile_questionnaire_add";
+  </script>
 <head>
   <title></title>
-
   <!-- LINE Opengraph https://developers.line.biz/en/faq/tags/media/#how-are-the-url-previews-generated -->
 <!--  <meta property="og:image" content="https://raw.githubusercontent.com/forgeFitnessUgym/bodyMeasureLINE/master/ForgeLogo%E5%A4%A7.png" />  -->
   <meta property="og:title" content="體適能量測系統" />
@@ -174,6 +173,7 @@
           <li style="font-weight:bold">Parq 自我評量表</li>
         </ul> 
         <div style="margin:20px">謝謝您的耐心配合。</div>
+        <div style="margin:20px">小提醒: 若點擊按鈕後沒出現資料，請將畫面向上滑。</div>
         <hr>
       </div>
       <div class="NotoSansFont" style="margin:20px; font-size:20px; font-weight:bold">個人基本資料 (所有欄位必填)</div>
@@ -929,7 +929,9 @@
     //navigator.userAgent
     setTimeout( ()=>{$(".km-on-ios, .km-header, .km-navbar").css("background-color", "coral")}, 10);
 
-
+    var Q2sub=[0,3,2,4,2,5,2,4,3,3,3];
+    var subSeq=['a','b','c','d','e'];
+    
     function 我知道了(){
       //$("#填寫說明").hide();      
       //$("#必填說明").hide();      
@@ -1043,7 +1045,81 @@
     }
     
     function 我同意(){
-      if ($("#cbox1").prop('checked')) alert("資料已上傳成功，謝謝您!");
+      var post_body={};
+      var params=   { "token_id": "elder_token" };
+      
+      var data_dict={ "product_group_id": group_ID, "site_id": site_ID, "meta":""};
+      var meta_data={};
+      var meta_parq={};
+      
+      meta_data.timestamp=Date.now().toString();
+      meta_data.user_name=$("#formUserName").val();
+      meta_data.gender=$("#formUserGender").val()=="女"?0:1;
+      meta_data.height=$("#formUserHeight").val();
+      meta_data.weight=$("#formUserWeight").val();
+      meta_data.mobile=$("#formUserPhone").val();
+      meta_data.id_no=$("#formUserID").val();
+      
+  
+      if ($("#cbox1").prop('checked')) {
+        var q_name;
+        var q_yes;
+        
+        //ParQ part I
+        for (var i=1; i<8;i++){
+          q_name="Q1_"+i.toString();
+          q_yes = "#q"+i.toString()+"-yes";
+          meta_parq[q_name]=($(q_yes).prop('checked'))?1:0;          
+        }
+
+        //ParQ part II
+        for (var i=1; i<11;i++){
+          q_name="Q2_"+i.toString();
+          q_yes = "#p2q"+i.toString()+"-yes";
+          meta_parq[q_name]=($(q_yes).prop('checked'))?1:0;  
+
+          //ParQ Part II sub questions
+          for (var j=0; j< Q2sub[i]; j++){
+            q_name="Q2_"+i.toString()+subSeq[j];
+            q_yes = "#p2q"+i.toString()+subSeq[j]+"-yes";  
+            meta_parq[q_name]=($(q_yes).prop('checked'))?1:0;             
+          }
+        } 
+        
+        
+        meta_data.parq=meta_parq;
+        data_dict.meta=JSON.stringify(meta_data);
+        
+        post_body.params=params;
+        post_body.params.data_dict=data_dict;
+        console.log(JSON.stringify(post_body));
+        
+       
+        postData(add_API, JSON.stringify(post_body))
+          .then(data => console.log(data)) // JSON from `response.json()` call
+          .catch(error => console.error(error))        
+        
+//        alert("資料已上傳成功，謝謝您!");
+      }
+    }
+    
+
+    function postData(url, data) {
+      // Default options are marked with *
+      return fetch(url, {
+        body: JSON.stringify(data), // must match 'Content-Type' header
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, same-origin, *omit
+        headers: {
+          'user-agent': 'Mozilla/4.0 MDN Example',
+          'content-type': 'application/json'
+        },
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, cors, *same-origin
+        redirect: 'follow', // manual, *follow, error
+        referrer: 'no-referrer', // *client, no-referrer
+      })
+      .then(response => response.json()) // 輸出成 json
     }
     
   </script>
