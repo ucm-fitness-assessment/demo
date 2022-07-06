@@ -4,8 +4,9 @@
     // Custom part
     var group_ID="UCM";
     var site_ID="demo";
-    //var add_API="https://ilxgxw0o3a.execute-api.ap-northeast-1.amazonaws.com/ugym/11/v1/elder_training/profile_questionnaire_add";
-    var add_API="https://ptsv2.com/t/4kiuu-1657025982/post";
+    var add_API="https://ilxgxw0o3a.execute-api.ap-northeast-1.amazonaws.com/ugym/11/v1/elder_training/profile_questionnaire_add";
+    
+    //var add_API="https://reqres.in/api/articles";
   </script>
 <head>
   <title></title>
@@ -1096,9 +1097,10 @@
         console.log(JSON.stringify(post_body));
         
        
-        postData(add_API, JSON.stringify(post_body))
-          .then(data => console.log(data)) // JSON from `response.json()` call
-          .catch(error => console.error(error))        
+        //postData(add_API, JSON.stringify(post_body))
+        postData(add_API, post_body)
+//          .then(data => console.log(data)) // JSON from `response.json()` call
+//          .catch(error => console.error(error))        
         
 //        alert("資料已上傳成功，謝謝您!");
       }
@@ -1107,20 +1109,31 @@
 
     function postData(url, data) {
       // Default options are marked with *
-      return fetch(url, {
-        body: JSON.stringify(data), // must match 'Content-Type' header
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, same-origin, *omit
-        headers: {
-          'user-agent': 'Mozilla/4.0 MDN Example',
-          'content-type': 'application/json'
-        },
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, cors, *same-origin
-        redirect: 'follow', // manual, *follow, error
-        referrer: 'no-referrer', // *client, no-referrer
-      })
-      .then(response => response.json()) // 輸出成 json
+//      return fetch(url, {
+//        body: JSON.stringify(data), // must match 'Content-Type' header
+//        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+//        credentials: 'omit', // include, same-origin, *omit
+//        headers: {
+//          'user-agent': 'Mozilla/4.0 MDN Example',
+//          'content-type': 'application/json'
+//        },
+//        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+//        mode: 'cors', // no-cors, cors, *same-origin
+//        redirect: 'follow', // manual, *follow, error
+//        referrer: 'no-referrer', // *client, no-referrer
+//      })
+//      .then(response => response.json()) // 輸出成 json
+      
+    
+      
+      const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+      };
+      fetch(url, requestOptions)
+          .then(response => response.json())
+          .then(data => console.log(data));      
     }
     
   </script>
