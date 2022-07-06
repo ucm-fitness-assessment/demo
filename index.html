@@ -196,30 +196,30 @@
           </label>
         </li>
         <li>
-          <label class="km-label-above">生日年月 (格式:1996-08-01)
-            <input id="formUserBirth" class="NotoSansFont" type="text" placeholder="1996-08-01"/> 
+          <label class="km-label-above">生日年月日 (格式:1996-08-01)
+            <input id="formUserBirth" class="NotoSansFont" type="text" placeholder="1996-08-01" onchange="checkBirth()"/> 
           </label> 
         </li>           
         <li>         
           <label class="km-label-above">身高
-            <input id="formUserHeight" class="NotoSansFont" type="text" placeholder="例如: 180"/> 
+            <input id="formUserHeight" class="NotoSansFont" type="text" placeholder="例如: 180" onchange="checkHeight()"/> 
           </label> 
           <span style="float:left ;margin-bottom: -1em; margin-top: -10px; margin-left: 5em">cm</span>
         </li> 
        <li>
           <label class="km-label-above">體重
-            <input id="formUserWeight" class="NotoSansFont" type="text" placeholder="例如: 70"/> 
+            <input id="formUserWeight" class="NotoSansFont" type="text" placeholder="例如: 70" onchange="checkWeight()"/> 
           </label> 
           <span style="float:left ;margin-bottom: -1em; margin-top: -10px; margin-left: 5em">kg</span>
         </li>         
         <li>
-          <label class="km-label-above">電話
-            <input id="formUserPhone" class="NotoSansFont" type="text" placeholder="格式: 09XX123456"/> 
+          <label class="km-label-above">行動電話
+            <input id="formUserPhone" class="NotoSansFont" type="text" placeholder="格式: 09XX123456" onchange="checkPhone()"/> 
           </label> 
         </li>
         <li>
-          <label class="km-label-above">身分字號或護照號碼
-            <input id="formUserID" class="NotoSansFont" type="text" placeholder="A1216XXXXX"/> 
+          <label class="km-label-above">身分證字號
+            <input id="formUserID" class="NotoSansFont" type="text" placeholder="A1216XXXXX" onchange="checkID()"/> 
           </label> 
         </li>        
       </ul>
@@ -915,7 +915,14 @@
   
   
   <script>
+    var dateRegEx=/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
+
+    var phone_10d=/^\d{10}$/   // phone_10d.test("0955022022") => true
     
+    var twoThreeDigits=/^[0-9]{2,3}$/
+    
+    var idRegEx=/^[A-Z]\d{9}$/
+
     window.app = new kendo.mobile.Application($(document.body), {
       layout: "mainDiv",
       transition: "slide",
@@ -939,6 +946,26 @@
     var Q2sub=[0,3,2,4,2,5,2,4,3,3,3];
     var subSeq=['a','b','c','d','e'];
     
+    function checkBirth(){
+      if (dateRegEx.test($("#formUserBirth").val())==false) alert("生日年月日輸入有誤，請檢查");
+    }
+    
+    function checkHeight(){
+      if (twoThreeDigits.test($("#formUserHeight").val())==false) alert("身高輸入有誤，請檢查");
+    }    
+      
+    function checkWeight(){
+      if (twoThreeDigits.test($("#formUserWeight").val())==false) alert("體重輸入有誤，請檢查");
+    } 
+    
+    function checkPhone(){
+      if (phone_10d.test($("#formUserPhone").val())==false) alert("行動電話輸入有誤，請檢查");
+    }     
+    
+    function checkID(){
+      if (idRegEx.test($("#formUserID").val())==false) alert("身分證字號輸入有誤，請檢查");
+    }     
+    
     function 我知道了(){
       //$("#填寫說明").hide();      
       //$("#必填說明").hide();      
@@ -946,22 +973,74 @@
     }
     
     function 填寫進行Parq(){
-      if (   $("#formUserName").val()=="" 
-          || $("#formUserGender").val()==""
-          || $("#formUserBirth").val()==""
-          || $("#formUserHeight").val()==""
-          || $("#formUserWeight").val()==""
-          || $("#formUserPhone").val()==""
-          || $("#formUserID").val()==""
-         ) {
-        //$("#必填說明").show();
-        alert("所有欄位都為必填，請檢查是否有遺漏。謝謝您的合作。");
-      } else {     
-        //$("#必填說明").hide(); 
+      var dataError=false;
+      var errMsg="資料錯誤:\n";
+      if ($("#formUserName").val()=="") {
+        dataError=true;
+        errMsg+="- 姓名不得為空白\n";        
+      }
+      
+      if ($("#formUserGender").val()=="") {
+        dataError=true;
+        errMsg+="- 性別不得為空白\n";        
+      }      
+      
+      if (dateRegEx.test($("#formUserBirth").val())==false) {
+        dataError=true;
+        errMsg+="- 生日年月日不得為空白，或格式錯誤\n";        
+      }       
+      
+      if (twoThreeDigits.test($("#formUserHeight").val())==false) {
+        dataError=true;
+        errMsg+="- 身高不得為空白，或格式錯誤\n";        
+      }  
+      
+      if (twoThreeDigits.test($("#formUserWeight").val())==false) {
+        dataError=true;
+        errMsg+="- 體重不得為空白，或格式錯誤\n";        
+      }  
+      
+      if (phone_10d.test($("#formUserPhone").val())==false) {
+        dataError=true;
+        errMsg+="- 行動電話不得為空白，或格式錯誤\n";        
+      }        
+      
+      if (idRegEx.test($("#formUserID").val())==false) {
+        dataError=true;
+        errMsg+="- 身分證字號不得為空白，或格式錯誤\n";        
+      }
+      
+      if (dataError)
+        alert(errMsg);
+      else {      
         $("#space1").hide();
         $("#PARQ").show();  
         $("#身體活動聲明按鈕").show();
       }
+      
+      
+//      if (   $("#formUserName").val()=="" 
+//          || $("#formUserGender").val()==""
+//          || dateRegEx.test($("#formUserBirth").val())==false
+//          || twoThreeDigits.test($("#formUserHeight").val())==false
+//          || twoThreeDigits.test($("#formUserWeight").val())==false
+//          || phone_10d.test($("#formUserPhone").val())==false
+//          || idRegEx.test($("#formUserID").val())==false
+//          
+//          || $("#formUserBirth").val()==""
+//          || $("#formUserHeight").val()==""
+//          || $("#formUserWeight").val()==""
+//          || $("#formUserPhone").val()==""
+//          || $("#formUserID").val()==""
+//         ) {
+//        //$("#必填說明").show();
+//        alert("所有欄位都為必填，請檢查是否有遺漏或格式錯誤。謝謝您的合作。");
+//      } else {     
+//        //$("#必填說明").hide(); 
+//        $("#space1").hide();
+//        $("#PARQ").show();  
+//        $("#身體活動聲明按鈕").show();
+//      }
     }
     
     function 身體活動聲明(){
