@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <script>
+    var ver="V0.9c";
     // Custom part
     var group_ID="UCM";
     var site_ID="demo";
@@ -217,11 +218,13 @@
             <input id="formUserPhone" class="NotoSansFont" type="text" placeholder="格式: 09XX123456" onchange="checkPhone()"/> 
           </label> 
         </li>
+<!--
         <li>
           <label class="km-label-above">身分證字號
             <input id="formUserID" class="NotoSansFont" type="text" placeholder="A1216XXXXX" onchange="checkID()"/> 
           </label> 
         </li>        
+-->
       </ul>
 
       <div align="center">
@@ -963,7 +966,7 @@
     }     
     
     function checkID(){
-      if (idRegEx.test($("#formUserID").val())==false) alert("身分證字號輸入有誤，請檢查");
+      //if (idRegEx.test($("#formUserID").val())==false) alert("身分證字號輸入有誤，請檢查");
     }     
     
     function 我知道了(){
@@ -1005,10 +1008,10 @@
         errMsg+="- 行動電話不得為空白，或格式錯誤\n";        
       }        
       
-      if (idRegEx.test($("#formUserID").val())==false) {
-        dataError=true;
-        errMsg+="- 身分證字號不得為空白，或格式錯誤\n";        
-      }
+//      if (idRegEx.test($("#formUserID").val())==false) {
+//        dataError=true;
+//        errMsg+="- 身分證字號不得為空白，或格式錯誤\n";        
+//      }
       
       if (dataError)
         alert(errMsg);
@@ -1145,7 +1148,7 @@
       meta_data.height=$("#formUserHeight").val();
       meta_data.weight=$("#formUserWeight").val();
       meta_data.mobile=$("#formUserPhone").val();
-      meta_data.id_no=$("#formUserID").val();
+      //meta_data.id_no=$("#formUserID").val();
       meta_data.remark=$("#remark").val();
       
   
